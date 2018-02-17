@@ -28,6 +28,10 @@ public abstract class Menu implements List<Option> {
 		init();
 		addAll(options);
 	}
+	
+	public Menu(Menu other) {
+		copy(other);
+	}
 
 
 	//-- Output --\\
