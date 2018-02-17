@@ -41,8 +41,13 @@ public abstract class Menu implements List<Option> {
 	@Override
 	public String toString() {
 		StringBuilder ret = new StringBuilder();
-
-		//add option.toString()'s to ret
+		Iterator<Option> iter = iterator();
+		int optNum = 1;
+		
+		while (iter.hasNext()) {
+			ret.append(optNum++ + "" + iter.next() + "\n");
+		}
+		
 
 		return ret.toString();
 	}
@@ -253,7 +258,7 @@ public abstract class Menu implements List<Option> {
 		//hopefully never happens
 		if (iter.hasNext()) {						//List had more elements than expected
 			System.err.println("Menu.toArray(T[]): Iterator and size are mismatched. Fix this.");
-			ret = finishToArray(ret, iter.nextIndex() - 1);
+			ret = finishToArray(ret, iter.nextIndex());
 		}
 		
 		return ret;
@@ -285,7 +290,7 @@ public abstract class Menu implements List<Option> {
 	
 	//-- Miscellaneous --\\
 	/**
-	 * Duplicates another menu by copying all data from other to this one.
+	 * Duplicates another Menu by copying all data from other to this one.
 	 * @param other the Menu to be copied.
 	 * @return a reference to this object.
 	 */
