@@ -10,15 +10,43 @@ public class OptionIterator implements ListIterator <Option> {
 	int current;
 	
 	public OptionIterator() {
-		current = 0;
+		this(null, 0);
 	}
 	
+	/**
+	 * Creates an OptionIterator object with elements from c, starting at the first element.
+	 * @param c the elements to add.
+	 */
 	public OptionIterator(Collection<Option> c) {
-		setList(c);
+		this(c, 0);
 	}
 	
+	/**
+	 * Creates an OptionIterator object with a reference to a Menu, starting at the first element.
+	 * @param menu the Menu to reference.
+	 */
 	public OptionIterator(Menu menu) {
+		this(menu, 0);
+	}
+	
+	/**
+	 * Creates an OptionIterator object with elements from c.
+	 * @param c the elements to add.
+	 * @param index the index at which to start iterating from.
+	 */
+	public OptionIterator(Collection<Option> c, int index) {
+		setList(c);
+		current = index;
+	}
+	
+	/**
+	 * Creates an OptionIterator object with a reference to a Menu.
+	 * @param menu the Menu to reference.
+	 * @param index the index at which to start iterating from.
+	 */
+	public OptionIterator(Menu menu, int index) {
 		setList(menu);
+		current = index;
 	}
 	
 	//-- List Iterator --\\
@@ -105,4 +133,11 @@ public class OptionIterator implements ListIterator <Option> {
 	public List<Option> getList() {
 		return options;
 	}
+	
+	//-- Current --\\
+	public int getCurrent() {
+		return current;
+	}
+	
+	
 }
