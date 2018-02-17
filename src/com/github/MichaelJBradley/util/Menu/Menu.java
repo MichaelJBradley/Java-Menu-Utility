@@ -25,11 +25,11 @@ public abstract class Menu implements List<Option> {
 	}
 	
 	public Menu(Collection<Option> options) {
-		init();
-		addAll(options);
+		this();
 	}
 	
 	public Menu(Menu other) {
+		this();
 		copy(other);
 	}
 
@@ -125,12 +125,6 @@ public abstract class Menu implements List<Option> {
 	
 	
 	//-- Options --\\
-	/**
-	 * Initializes the data structure used for options.
-	 * @return a reference to this object.
-	 */
-	public abstract Menu init();
-	
 	/**
 	 * @return the last option chosen.
 	 */
