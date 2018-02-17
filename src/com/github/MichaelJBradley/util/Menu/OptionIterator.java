@@ -10,7 +10,7 @@ public class OptionIterator implements ListIterator <Option> {
 	int current;
 	
 	public OptionIterator() {
-		this(null, 0);
+		this(null, -1);
 	}
 	
 	/**
@@ -18,7 +18,7 @@ public class OptionIterator implements ListIterator <Option> {
 	 * @param c the elements to add.
 	 */
 	public OptionIterator(Collection<Option> c) {
-		this(c, 0);
+		this(c, -1);
 	}
 	
 	/**
@@ -26,7 +26,7 @@ public class OptionIterator implements ListIterator <Option> {
 	 * @param menu the Menu to reference.
 	 */
 	public OptionIterator(Menu menu) {
-		this(menu, 0);
+		this(menu, -1);
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class OptionIterator implements ListIterator <Option> {
 
 	@Override
 	public Option next() {
-		return options.get(current++);
+		return options.get(++current);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class OptionIterator implements ListIterator <Option> {
 
 	@Override
 	public Option previous() {
-		return options.get(current--);
+		return options.get(--current);
 	}
 
 	@Override

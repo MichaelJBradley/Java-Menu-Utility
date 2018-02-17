@@ -45,7 +45,7 @@ public abstract class Menu implements List<Option> {
 		int optNum = 1;
 		
 		while (iter.hasNext()) {
-			ret.append(optNum++ + "" + iter.next() + "\n");
+			ret.append(optNum++ + ". " + iter.next() + "\n");
 		}
 		
 
@@ -132,6 +132,13 @@ public abstract class Menu implements List<Option> {
 	public abstract Menu init();
 	
 	/**
+	 * @return the last option chosen.
+	 */
+	public Option getLast() {
+		return get(choice - 1);
+	}
+	
+	/**
 	 * @param o the object to test.
 	 * @return false if o is null, not of type Option, or could not be found in the Menu.
 	 */
@@ -205,7 +212,7 @@ public abstract class Menu implements List<Option> {
 	
 	@Override
 	public ListIterator<Option> listIterator() {
-		return listIterator(0);
+		return new OptionIterator(this);
 	}
 	
 	@Override

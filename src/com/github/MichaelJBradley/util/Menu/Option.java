@@ -20,6 +20,16 @@ public class Option {
 	}
 	
 	
+	//-- Input --\\
+	/**
+	 * A method used to define the functionality of an option.
+	 * @return a reference to this object.
+	 */
+	public Option choose() {
+		//option functionality goes here
+		return this;
+	}
+	
 	//-- Output --\\
 	/**
 	 * This method is the same as calling {@link Option#getText()}.
