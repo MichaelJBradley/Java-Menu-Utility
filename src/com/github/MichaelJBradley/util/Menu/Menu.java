@@ -1,7 +1,13 @@
 package com.github.MichaelJBradley.util.Menu;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public abstract class Menu implements List<Option> {
@@ -16,6 +22,11 @@ public abstract class Menu implements List<Option> {
 	//-- Constructors --\\
 	public Menu() {
 		setChoice(-1);
+	}
+	
+	public Menu(Collection<Option> options) {
+		init();
+		addAll(options);
 	}
 
 
@@ -101,5 +112,220 @@ public abstract class Menu implements List<Option> {
 	public Menu setChoice(int c) {
 		choice = c;
 		return this;
+	}
+	
+	
+	//-- Options --\\
+	/**
+	 * Initializes the data structure used for options.
+	 * @return a reference to this object.
+	 */
+	public abstract Menu init();
+	
+	/**
+	 * @param o the object to test.
+	 * @return false if o is null, not of type Option, or could not be found in the Menu.
+	 */
+	@Override
+	public boolean contains(Object o) {
+		return indexOf(o) != -1;
+	}
+	
+	/**
+	 * @param c the collection to be tested.
+	 * @return true if and only if all elements in c are in this Menu.
+	 */
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		for (Object o : c) {
+			if (!contains(o)) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	@Override
+	public int indexOf(Object o) {
+		if (!validateOption(o)) {
+			return -1;
+		}
+		 
+		ListIterator<Option> iter = listIterator();
+		int index;
+		
+		while (iter.hasNext()) {
+			index = iter.nextIndex();
+			if (iter.next().equals(o)) {
+				return index;
+			}
+		}
+		
+		return -1;
+	}
+	
+	@Override
+	public int lastIndexOf(Object o) {
+		if (!validateOption(o)) {
+			return -1;
+		}
+		
+		ListIterator<Option> iter = listIterator(size());
+		int index;
+		
+		while (iter.hasPrevious()) {
+			index = iter.previousIndex();
+			if (iter.previous().equals(o)) {
+				return index;
+			}
+		}
+		
+		return -1;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		return size() == 0;
+	}
+	
+	@Override
+	public Iterator<Option> iterator() {
+		return listIterator();
+	} 
+	
+	@Override
+	public ListIterator<Option> listIterator() {
+		return listIterator(0);
+	}
+	
+	@Override
+	public ListIterator<Option> listIterator(int index) {
+		return new OptionIterator(this, index);
+	}
+	
+	@Override
+	public List<Option> subList(int fromIndex, int toIndex) {
+		ArrayList<Option> ret = new ArrayList<Option>();
+		
+		for (int i = fromIndex; i <= toIndex; i++) {
+			ret.add(get(i));
+		}
+		
+		return ret;
+	}
+	
+	@Override
+	public Object[] toArray() {
+		Object[] ret = new Object[size()];
+		
+		for (int i = 0; i < ret.length; i++) {
+			ret[i] = new Option(get(i));
+		}
+		
+		return ret;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public <T> T[] toArray(T[] a) {
+		int size = size();
+		T[] ret = a.length >= size ? a : (T[])Array.newInstance(a.getClass().getComponentType(), size);
+		
+		ListIterator<Option> iter = listIterator();
+		
+		for (int i = 0; i < ret.length; i++) {
+			if (!iter.hasNext()) { 					//no more elements
+				if (ret != a) { 						//ret has been reallocated
+					return Arrays.copyOf(ret, i); 	//List had less elements than expected so return truncated array
+				}
+													//ret still references a
+				ret[i] = null;						//a is larger so terminate with null
+				return ret;
+			}
+			ret[i] = (T)iter.next();
+		}
+		
+		//hopefully never happens
+		if (iter.hasNext()) {						//List had more elements than expected
+			System.err.println("Menu.toArray(T[]): Iterator and size are mismatched. Fix this.");
+			ret = finishToArray(ret, iter.nextIndex() - 1);
+		}
+		
+		return ret;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <T> T[] finishToArray(T[] a, int index) {
+		ListIterator<Option> iter = listIterator(index);
+		int elementsLeft = 0;
+		int i = 0;
+		
+		//count elements left
+		while (iter.hasNext()) {
+			elementsLeft++;
+			iter.next();
+		}
+		
+		//resize to exactly how many are left
+		a = Arrays.copyOf(a, a.length + elementsLeft);
+		
+		//copy remaining elements
+		iter = listIterator(index);
+		while (iter.hasNext()) {
+			a[i++] = (T)iter.next();
+		}
+		
+		return a;
+	}
+	
+	//-- Miscellaneous --\\
+	/**
+	 * Duplicates another menu by copying all data from other to this one.
+	 * @param other the Menu to be copied.
+	 * @return a reference to this object.
+	 */
+	abstract public Menu copy(Menu other);
+	
+	/**
+	 * @param obj the object to be compared.
+	 * @return true if and only if obj is an instance of type Menu, both Menus have the same number of options,
+	 * and {@link Menu#containsAll(Collection)} returns true.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Menu)) {
+			return false;
+		}
+		
+		Menu other = (Menu)obj;
+		
+		if (other.size() != size()) {
+			return false;
+		}
+		
+		return other.containsAll(this);
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+	
+	/**
+	 * Checks that o is a valid Option object.
+	 * @param o the Object to test.
+	 * @return true if and only if o is not null and is an instance of Option.
+	 */
+	public static boolean validateOption(Object o) {
+		if (o == null) {
+			return false;
+		}
+		
+		if (!(o instanceof Option)) {
+			return false;
+		}
+		
+		return true;
 	}
 }
