@@ -291,7 +291,7 @@ public abstract class Menu implements List<Option> {
 	
 	//-- Miscellaneous --\\
 	/**
-	 * Duplicates another Menu by copying all data from other to this one.
+	 * Copies another Menu's data into its own.
 	 * @param other the Menu to be copied.
 	 * @return a reference to this object.
 	 */
