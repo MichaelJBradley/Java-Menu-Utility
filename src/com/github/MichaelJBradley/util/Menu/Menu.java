@@ -295,7 +295,10 @@ public abstract class Menu implements List<Option> {
 	 * @param other the Menu to be copied.
 	 * @return a reference to this object.
 	 */
-	abstract public Menu copy(Menu other);
+	 public Menu copy(Menu other) {
+		 setChoice(other.getChoice());
+		 return this;
+	 }
 	
 	/**
 	 * @param obj the object to be compared.
