@@ -23,15 +23,6 @@ public abstract class Menu implements List<Option> {
 	public Menu() {
 		setChoice(-1);
 	}
-	
-	public Menu(Collection<Option> options) {
-		this();
-	}
-	
-	public Menu(Menu other) {
-		this();
-		copy(other);
-	}
 
 
 	//-- Output --\\
