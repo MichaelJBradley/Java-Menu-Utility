@@ -1,19 +1,24 @@
 # Java Menu Utility
-This menu utiliy makes creating and using text menus in Java fast and easy. Make a static or mutable menu that displays its 
-contents with the just call of a function. Get proper input from even the most destructive user who actively tries to break
-your program! Want to make sure a user chooses each option before moving on? This utility records it for you. All of this
-wrapped up in a neat little library.
+This menu utiliy makes creating and using text menus in Java fast and easy. 
+Make a static or mutable menu that displays its 
+contents with the just call of a function. Get proper input from even the
+most destructive user who actively tries to break
+your program! Want to make sure a user chooses each option before moving on?
+This utility records it for you. All of this wrapped up in a neat little
+library.
 
 ## Get It!
-Download [here](dl link)!
+* [Download](https://s3-us-west-1.amazonaws.com/michaeljbradley/java-menu-ut
+ility/jmu-0-1.zip)
+* [Dropbox](https://www.dropbox.com/s/2f6vpm6bclao4lg/jmu-0-1.zip?dl=0#)
 
 ### Includes
-* Library (menu-utility-0-1.jar)
-* Sources (menu-utility-0-1-sources.jar)
+* Library (jmu-0-1.jar)
+* Sources (jmu-0-1-sources.jar)
 
 ## Use It!
-To include this library in an existing Java project, add
-menu-utility-0-1.jar to the Java build path.
+To include this library in an existing Java project, add jmu-0-1.jar to the
+Java build path.
 
 ### Example
 ```Java
@@ -30,7 +35,8 @@ prints out the chosen option and repeats as long as the Exit option was not
 chosen.
 
 ## Feedback
-Report bugs or any other issues [here](https://github.com/MichaelJBradley/Java-Menu-Utility/issues)
+Report bugs or any other issues [here](https://github.com/MichaelJBradley/Ja
+va-Menu-Utility/issues)
 
 ## Follow Along!
 * [Roadmap](https://trello.com/b/QZTnrlXV/java-menu-utility)
