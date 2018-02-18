@@ -25,11 +25,11 @@ public abstract class Menu implements List<Option> {
 	}
 	
 	public Menu(Collection<Option> options) {
-		init();
-		addAll(options);
+		this();
 	}
 	
 	public Menu(Menu other) {
+		this();
 		copy(other);
 	}
 
@@ -125,12 +125,6 @@ public abstract class Menu implements List<Option> {
 	
 	
 	//-- Options --\\
-	/**
-	 * Initializes the data structure used for options.
-	 * @return a reference to this object.
-	 */
-	public abstract Menu init();
-	
 	/**
 	 * @return the last option chosen.
 	 */
@@ -297,11 +291,14 @@ public abstract class Menu implements List<Option> {
 	
 	//-- Miscellaneous --\\
 	/**
-	 * Duplicates another Menu by copying all data from other to this one.
+	 * Copies another Menu's data into its own.
 	 * @param other the Menu to be copied.
 	 * @return a reference to this object.
 	 */
-	abstract public Menu copy(Menu other);
+	 public Menu copy(Menu other) {
+		 setChoice(other.getChoice());
+		 return this;
+	 }
 	
 	/**
 	 * @param obj the object to be compared.
