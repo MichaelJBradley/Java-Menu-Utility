@@ -8,12 +8,12 @@ wrapped up in a neat little library.
 Download [here](dl link)!
 
 ### Includes
-* Java Menu Utility Library (title.jar)
-* Java Menu Utility Sources (title.jar)
+* Library (menu-utility-0-1.jar)
+* Sources (menu-utility-0-1-sources.jar)
 
 ## Use It!
-To include this library in an existing Java project, add title.jar to the
-Java build path.
+To include this library in an existing Java project, add
+menu-utility-0-1.jar to the Java build path.
 
 ### Example
 ```Java
