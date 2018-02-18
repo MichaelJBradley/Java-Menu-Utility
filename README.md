@@ -8,8 +8,7 @@ This utility records it for you. All of this wrapped up in a neat little
 library.
 
 ## Get It!
-* [Download](https://s3-us-west-1.amazonaws.com/michaeljbradley/java-menu-ut
-ility/jmu-0-1.zip)
+* [Download](https://s3-us-west-1.amazonaws.com/michaeljbradley/java-menu-utility/jmu-0-1.zip)
 * [Dropbox](https://www.dropbox.com/s/2f6vpm6bclao4lg/jmu-0-1.zip?dl=0#)
 
 ### Includes
@@ -35,8 +34,7 @@ prints out the chosen option and repeats as long as the Exit option was not
 chosen.
 
 ## Feedback
-Report bugs or any other issues [here](https://github.com/MichaelJBradley/Ja
-va-Menu-Utility/issues)
+Report bugs or any other issues [here](https://github.com/MichaelJBradley/Java-Menu-Utility/issues)
 
 ## Follow Along!
 * [Roadmap](https://trello.com/b/QZTnrlXV/java-menu-utility)
