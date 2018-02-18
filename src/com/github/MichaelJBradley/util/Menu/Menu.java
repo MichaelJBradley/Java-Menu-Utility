@@ -66,7 +66,7 @@ public abstract class Menu implements List<Option> {
 			try {
 				input = STDIN.nextInt();
 			} catch (InputMismatchException e) {
-				STDIN.next();
+				STDIN.nextLine();
 				valid = false;
 			}
 		} while (!valid);
