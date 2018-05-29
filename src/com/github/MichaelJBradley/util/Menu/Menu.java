@@ -117,13 +117,6 @@ public abstract class Menu implements List<Option> {
 	
 	//-- Options --\\
 	/**
-	 * @return the last option chosen.
-	 */
-	public Option getLast() {
-		return get(choice - 1);
-	}
-	
-	/**
 	 * @param o the object to test.
 	 * @return false if o is null, not of type Option, or could not be found in the Menu.
 	 */
