@@ -117,9 +117,10 @@ public abstract class Menu implements List<Option> {
 	
 	//-- Options --\\
 	/**
-	 * @return the last option chosen.
+	 * A convenience function that essentially calls {@code Menu.get(Menu.getChoice() - 1)}
+	 * @return the most recent {@link Option} chosen by the user.
 	 */
-	public Option getLast() {
+	public Option getChosen() {
 		return get(choice - 1);
 	}
 	
