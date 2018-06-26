@@ -22,7 +22,7 @@ public class ImmutableMenu extends Menu {
 	 */
 	public ImmutableMenu(Collection<Option> c) {
 		this(c.size()); //Allocate options to size for toArray(T[])
-		setAll(c);
+		addAll(c);
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class ImmutableMenu extends Menu {
 	 */
 	public ImmutableMenu(Option[] options) {
 		this();
-		setAll(options);
+		addAll(options);
 	}
 	
 	/**
@@ -69,9 +69,9 @@ public class ImmutableMenu extends Menu {
 	/**
 	 * Sets options array to elements.
 	 * @param elements the array of {@link Options Option} to set.
-	 * @return the options previously associated with this ImmutableMenu
+	 * @return the Options previously associated with this ImmutableMenu
 	 */
-	public Option[] setAll(Option[] elements) {
+	public Option[] addAll(Option[] elements) {
 		Option[] ret = options;
 		options = elements;
 		return ret;
@@ -80,12 +80,12 @@ public class ImmutableMenu extends Menu {
 	/**
 	 * Initializes an {@link Option} array with the elements of c.
 	 * @param c a collection of Options to be set.
-	 * @return the options previously associated with this ImmutableMenu
+	 * @return {@code true} if the Option array was initialized, {@code false} otherwise.
 	 */
-	public Option[] setAll(Collection<Option> c) {
-		Option[] ret = options;
+	@Override
+	public boolean addAll(Collection<? extends Option> c) {
 		options = c.toArray(options);
-		return ret;
+		return true;
 	}
 	
 	/**
@@ -111,7 +111,7 @@ public class ImmutableMenu extends Menu {
 	 */
 	@Override
 	public Menu copy(Menu other) {
-		setAll(other);
+		addAll(other);
 		return super.copy(other);
 	}
 	
@@ -124,11 +124,6 @@ public class ImmutableMenu extends Menu {
 
 	@Override
 	public boolean remove(Object o) {
-		return false;
-	}
-	
-	@Override
-	public boolean addAll(Collection<? extends Option> c) {
 		return false;
 	}
 	
