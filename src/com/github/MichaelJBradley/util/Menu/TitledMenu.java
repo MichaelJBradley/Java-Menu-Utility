@@ -24,6 +24,10 @@ public class TitledMenu extends AbstractMenuDecorator {
 		setTitle(title);
 	}
 	
+	public TitledMenu(AbstractMenuDecorator other) {
+		copy(other);
+	}
+	
 	
 	//-- Accessors and Mutators --\\
 	/**
@@ -58,5 +62,17 @@ public class TitledMenu extends AbstractMenuDecorator {
 		ret.append(menu);
 		
 		return ret.toString();
+	}
+	
+	
+	//-- Miscellaneous --\\
+	@Override
+	public AbstractMenuDecorator copy(AbstractMenuDecorator other) {
+		super.copy(other);
+		if (other instanceof TitledMenu) {
+			setTitle(((TitledMenu)other).getTitle());
+		}
+		
+		return this;
 	}
 }
