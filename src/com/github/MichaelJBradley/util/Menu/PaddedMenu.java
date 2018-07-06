@@ -2,7 +2,7 @@ package com.github.MichaelJBradley.util.Menu;
 
 public abstract class PaddedMenu extends AbstractMenuDecorator {
 
-	private int pads;
+	protected int pads;
 	
 	public PaddedMenu() {
 		super();
