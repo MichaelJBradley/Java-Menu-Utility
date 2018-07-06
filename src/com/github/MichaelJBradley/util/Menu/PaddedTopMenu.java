@@ -11,6 +11,8 @@ public class PaddedTopMenu extends PaddedMenu {
 		super(menu, pads);
 	}
 	
+	
+	//-- Decoration --\\
 	@Override
 	/**
 	 * Print newlines before the given Menu.
