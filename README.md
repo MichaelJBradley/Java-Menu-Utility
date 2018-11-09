@@ -8,16 +8,16 @@ This utility records it for you. All of this wrapped up in a neat little
 library.
 
 ## Get It!
-* [Download](https://s3-us-west-1.amazonaws.com/michaeljbradley/java-menu-utility/jmu-0.1.0.zip)
-* [Dropbox](https://www.dropbox.com/s/ni0zjce1cq9dpr3/jmu-0.1.0.zip?dl=0)
+* [Download](https://github.com/MichaelJBradley/Java-Menu-Utility/releases/download/v0.2.0/jmu-0.2.0.zip)
+* [Dropbox](https://www.dropbox.com/s/fscwvy3n3xsnnyd/jmu-0.2.0.zip?dl=0)
 
 ### Includes
-* Library (jmu-0.1.0.jar)
-* Sources (jmu-0.1.0-sources.jar)
+* Library (jmu-0.2.0.jar)
+* Sources (jmu-0.2.0-sources.jar)
 
 ## Use It!
-To include this library in an existing Java project, add jmu-0.1.0.jar to the
-Java build path.
+To include this library in an existing Java project, add jmu-0.2.0.jar to
+the Java build path.
 
 ### Example
 ```Java
