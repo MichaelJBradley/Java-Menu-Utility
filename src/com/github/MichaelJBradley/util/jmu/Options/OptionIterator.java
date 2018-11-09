@@ -1,8 +1,11 @@
-package com.github.MichaelJBradley.util.Menu;
+package com.github.MichaelJBradley.util.jmu.Options;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.ListIterator;
+
+import com.github.MichaelJBradley.util.jmu.Menus.ImmutableMenu;
+import com.github.MichaelJBradley.util.jmu.Menus.Menu;
 
 public class OptionIterator implements ListIterator <Option> {
 

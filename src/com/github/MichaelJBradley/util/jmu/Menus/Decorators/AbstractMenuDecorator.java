@@ -1,6 +1,9 @@
-package com.github.MichaelJBradley.util.Menu;
+package com.github.MichaelJBradley.util.jmu.Menus.Decorators;
 
 import java.util.Collection;
+
+import com.github.MichaelJBradley.util.jmu.Menus.Menu;
+import com.github.MichaelJBradley.util.jmu.Options.Option;
 
 public abstract class AbstractMenuDecorator extends Menu {
 

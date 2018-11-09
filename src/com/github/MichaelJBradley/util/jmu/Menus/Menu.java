@@ -1,4 +1,4 @@
-package com.github.MichaelJBradley.util.Menu;
+package com.github.MichaelJBradley.util.jmu.Menus;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -9,6 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
+
+import com.github.MichaelJBradley.util.jmu.Options.Option;
+import com.github.MichaelJBradley.util.jmu.Options.OptionIterator;
 
 public abstract class Menu implements List<Option> {
 

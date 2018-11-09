@@ -1,4 +1,6 @@
-package com.github.MichaelJBradley.util.Menu;
+package com.github.MichaelJBradley.util.jmu.Menus.Decorators;
+
+import com.github.MichaelJBradley.util.jmu.Menus.Menu;
 
 public class PaddedBottomMenu extends PaddedMenu {
 
