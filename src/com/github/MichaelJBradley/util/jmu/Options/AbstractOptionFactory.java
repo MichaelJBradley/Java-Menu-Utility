@@ -1,4 +1,4 @@
-package com.github.MichaelJBradley.util.Menu;
+package com.github.MichaelJBradley.util.jmu.Options;
 
 import java.util.ArrayList;
 import java.util.Collection;

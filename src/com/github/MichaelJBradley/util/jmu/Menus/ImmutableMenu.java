@@ -1,6 +1,8 @@
-package com.github.MichaelJBradley.util.Menu;
+package com.github.MichaelJBradley.util.jmu.Menus;
 
 import java.util.Collection;
+
+import com.github.MichaelJBradley.util.jmu.Options.Option;
 
 public class ImmutableMenu extends Menu {
 
